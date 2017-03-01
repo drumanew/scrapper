@@ -21,6 +21,8 @@
                  downloading = false,
                  done = false }).
 
+-include ("scrapper_config.hrl").
+
 %%%===================================================================
 %%% API
 %%%===================================================================
@@ -109,4 +111,7 @@ get_output ("http://" ++ Url) ->
 get_output ("https://" ++ Url) ->
   get_output(Url);
 get_output (Url) ->
-  "/tmp/" ++ re:replace(Url, "/", "_", [global, {return, list}]) ++ ".html".
+  ?OUTPUT_DIR ++ "/" ++
+  ?OUTPUT_PREFIX ++
+  re:replace(Url, "/", "_", [global, {return, list}]) ++
+  ?OUTPUT_SUFFIX.

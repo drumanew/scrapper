@@ -17,9 +17,7 @@
           terminate/2,
           code_change/3]).
 
--define (PROXY_FILE,  "/home/mkhotko/proxy/_reliable_list.txt").
--define (URLS_FILE,   "/home/mkhotko/proxy/urls.txt").
--define (MAX_WORKERS, 10).
+-include ("scrapper_config.hrl").
 
 -record(state, { urls, proxy, workers = gb_sets:new(), free = ?MAX_WORKERS }).
 
